@@ -1,8 +1,8 @@
-import { component$, useSignal, $ } from "@builder.io/qwik";
-import styles from "./counter.module.css";
+import { $, component$, useSignal } from "@builder.io/qwik";
 import Gauge from "../gauge";
+import styles from "./counter.module.css";
 
-export default component$(() => {
+export default component$((props: {stam?: string}) => {
   const count = useSignal(70);
 
   const setCount = $((newValue: number) => {
@@ -21,6 +21,7 @@ export default component$(() => {
         -
       </button>
       <Gauge value={count.value} />
+      {props.stam}
       <button
         class="button-dark button-small"
         onClick$={() => setCount(count.value + 1)}
