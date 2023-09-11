@@ -6,7 +6,7 @@ import { AccordionContent, AccordionHeader, AccordionItem, AccordionRoot, Accord
 export default component$(() => {
   return (
     <>
-      <div>
+      <div onClick$={() => console.log('HEY')}>
         <AccordionRoot class="accordion-wrapper" animated>
           <AccordionItem>
             <AccordionHeader>
