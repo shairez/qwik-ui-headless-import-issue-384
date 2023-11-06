@@ -1,53 +1,28 @@
-import { component$ } from "@builder.io/qwik";
+import { QwikIntrinsicElements, component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
-import { AccordionContent, AccordionHeader, AccordionItem, AccordionRoot, AccordionTrigger } from "@qwik-ui/headless";
+import { Tab, TabList, TabPanel, Tabs } from "@qwik-ui/headless";
 
 export default component$(() => {
   return (
     <>
-      <div onClick$={() => console.log('HEY')}>
-        <AccordionRoot class="accordion-wrapper" animated>
-          <AccordionItem>
-            <AccordionHeader>
-              <AccordionTrigger class="accordion-trigger">
-                <span>Can I add headings inside the accordion?</span>
-              </AccordionTrigger>
-            </AccordionHeader>
-            <AccordionContent class="accordion-content">
-              <p>
-                Yes, if you wrap the AccordionHeader component around the trigger,
-                screen readers will announce it properly.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem>
-            <AccordionHeader>
-              <AccordionTrigger class="accordion-trigger">
-                <span>Is it easy to animate?</span>
-              </AccordionTrigger>
-            </AccordionHeader>
-            <AccordionContent class="accordion-content">
-              <p>
-                Yup! You can even use animations or CSS transitions using the{' '}
-                <strong>animated</strong> prop on the accordion root!
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem>
-            <AccordionHeader>
-              <AccordionTrigger class="accordion-trigger">
-                <span>How about opening multiple items at once?</span>
-              </AccordionTrigger>
-            </AccordionHeader>
-            <AccordionContent class="accordion-content">
-              <p>
-                You can do that by setting the <strong>behavior</strong> prop to
-                "multi" on the Accordion
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-        </AccordionRoot>
+      <div >
+      <Tabs behavior="automatic">
+        <TabList>
+          <Tab>Maria Ahlefeldt</Tab>
+          <Tab>Carl Andersen</Tab>
+          <Tab>Ida Henriette da Fonseca</Tab>
+        </TabList>
+        <TabPanel>
+          <p>Maria Theresia Ahlefeldt (16 January 1755 - 20 December 1810) was a ...</p>
+        </TabPanel>
+        <TabPanel>
+          <p>Carl Joachim Andersen (29 April 1847 - 7 May 1909) was a ...</p>
+        </TabPanel>
+        <TabPanel>
+          <p>Ida Henriette da Fonseca (July 27, 1802 - July 6, 1858) was a ...</p>
+        </TabPanel>
+      </Tabs>
       </div>
 
 
@@ -64,3 +39,22 @@ export const head: DocumentHead = {
     },
   ],
 };
+
+
+
+export function SVG(props: QwikIntrinsicElements['svg']) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 1024 1024"
+      {...props}
+    >
+      <path
+        fill="currentColor"
+        d="M831.872 340.864L512 652.672L192.128 340.864a30.592 30.592 0 0 0-42.752 0a29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728a30.592 30.592 0 0 0-42.752 0z"
+      ></path>
+    </svg>
+  );
+}

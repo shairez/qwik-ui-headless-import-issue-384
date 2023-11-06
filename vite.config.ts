@@ -8,7 +8,7 @@ export default defineConfig(() => {
   return {
     plugins: [qwikCity(), qwikVite({
       vendorRoots: [
-        'node_modules/@qwik-ui/headless'
+      
       ]
     }), tsconfigPaths(), Inspect()],
     preview: {
@@ -16,5 +16,11 @@ export default defineConfig(() => {
         "Cache-Control": "public, max-age=600",
       },
     },
+    build: {
+      rollupOptions: {
+        external: ['@floating-ui/dom']
+        
+      }
+    }
   };
 });
